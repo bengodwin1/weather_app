@@ -1,3 +1,8 @@
 <h1>{{ title }}</h1>
 <p>{{ title }} connected</p>
 <p>Visit /current-temp for the current temperature</p>
+
+<form action="/current-temp" method="post">
+    <input type="text" id="address" name='address' placeholder="Location">
+    <button type="submit">Submit</button>
+</form>
