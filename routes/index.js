@@ -32,6 +32,16 @@ router.post("/current-temp", function(req, res) {
         return;
       } else {
         fullAddress = parsedData.results[0].formatted_address;
+        var s = fullAddress;
+        var k = s.indexOf(" ", s.indexOf(" ") + 1);
+        console.log(k);
+        if (k !== -1) {
+          var result = s.slice(0, k);
+          if (result.charAt(result.length - 1) === ",") {
+            result = result.slice(0, result.length - 1);
+          }
+          fullAddress = result;
+        }
         lat = parsedData.results[0].geometry.location.lat;
         lng = parsedData.results[0].geometry.location.lng;
         var forecastReqStr =
