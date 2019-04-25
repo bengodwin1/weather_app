@@ -1,7 +1,21 @@
-<h1>{{ title }}</h1>
-<p>Welome to {{ title }}. Enter a location below to view the weather</p>
+<div id="outer" class="default">
+    <div id="middle" class="">
+        <div id="inner" class="">
+            <h1>{{ title }}</h1>
+            <p>Location: {{ location }}</p>
+            <div class="current">
+                <p>Current conditions: {{ current }}</p>
+                <p>Temperature of {{ temp }}°F with {{ wind }}mph wind and gusts up to {{ gusts }}mph</p>
+            </div>
+            <p>Forecast: {{ forecast }} High of {{ high }}°F and a low of {{ low }}°F</p>
+            <a href="https://darksky.net/poweredby/">Powered By Dark Sky</a>
 
-<form action="/current-temp" method="post">
-    <input type="text" id="address" name='address' placeholder="Location">
-    <button type="submit">Submit</button>
-</form>
+            <div class="container" style="margin-top: 20px">
+                <form action="/weather" method="post">
+                    <input type="text" id="address" name='address' placeholder="Location">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
