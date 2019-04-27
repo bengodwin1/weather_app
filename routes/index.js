@@ -7,12 +7,13 @@ var request = require('request');
 
 var url = 'mongodb://localhost:27017/test'
 
-function setWeatherIcon(str) {
-  if (str === clear-day) {
-    
-  }
-
-}
+// function setWeatherIcon(str) {
+//   if (str) {
+//     var conditions = str;
+//   } else {
+//     document.getElementById("outer").className = "default";
+//   };
+// };
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -58,6 +59,9 @@ router.get('/', function(req, res, next) {
             var gusts = parsedData["currently"]["windGust"];
             var highTemp = parsedData["daily"]["data"][0]["temperatureHigh"];
             var lowTemp = parsedData["daily"]["data"][0]["temperatureLow"];
+            var icon = parsedData["currently"]["icon"];
+            console.log("*********************");
+            console.log("icon: " + parsedData["currently"]["icon"]);
             res.render("index", {
               title: "Ben's Weather App",
               location: fullAddress,
@@ -68,7 +72,8 @@ router.get('/', function(req, res, next) {
               wind: wind,
               gusts: gusts,
               high: highTemp,
-              low: lowTemp
+              low: lowTemp,
+              icon: icon
             });
           } else {
             res.render("error");
@@ -124,6 +129,9 @@ router.post("/weather", function(req, res) {
             var gusts = parsedData["currently"]["windGust"];
             var highTemp = parsedData["daily"]["data"][0]["temperatureHigh"];
             var lowTemp = parsedData["daily"]["data"][0]["temperatureLow"];
+            var icon = parsedData["currently"]["icon"];
+            console.log("*********************");
+            console.log("icon: " + parsedData["currently"]["icon"]);
             res.render("index", {
               title: "Ben's Weather App",
               location: fullAddress,
@@ -134,7 +142,8 @@ router.post("/weather", function(req, res) {
               wind: wind,
               gusts: gusts,
               high: highTemp,
-              low: lowTemp
+              low: lowTemp,
+              icon: icon
             });
           } else {
             res.render("error");

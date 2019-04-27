@@ -1,6 +1,6 @@
-<div id="outer" class="default">
-    <div id="middle" class="">
-        <div id="inner" class="">
+<div id="outer" class="container d-flex flex-column justify-content-startcol-11 col-sm-10 col-md-8 col-lg-6">
+    <div id="middle" class="d-flex flex-column">
+        <div id="inner" class="mb-auto">
             <h1>{{ title }}</h1>
             <p>Location: {{ location }}</p>
             <div class="current">
@@ -8,14 +8,17 @@
                 <p>Temperature of {{ temp }}°F with {{ wind }}mph wind and gusts up to {{ gusts }}mph</p>
             </div>
             <p>Forecast: {{ forecast }} High of {{ high }}°F and a low of {{ low }}°F</p>
-            <a href="https://darksky.net/poweredby/">Powered By Dark Sky</a>
 
-            <div class="container" style="margin-top: 20px">
-                <form action="/weather" method="post">
-                    <input type="text" id="address" name='address' placeholder="Location">
-                    <button type="submit">Submit</button>
+            {{!-- <div class="container d-flex flex-row justify-content-center" id="formDiv">
+                <form class="form-inline my-2 my-lg-0" action="/weather" method="post">
+                    <input class="form-control mr-sm-2" type="text" id="address" name='address' placeholder="Location">
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Submit</button>
                 </form>
-            </div>
+            </div> --}}
         </div>
     </div>
+</div>
+<div id="weatherCredit" class="d-flex flex-row-reverse">
+    <a class="btn btn-sm btn-outline-info my-2 my-sm-0 mx-5" href="https://darksky.net/poweredby/">Powered By Dark
+        Sky</a>
 </div>
